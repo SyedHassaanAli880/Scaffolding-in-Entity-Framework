@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Scaffolding.Models.Students>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StuName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StuEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StuPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StuCity)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StuName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StuEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StuPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StuCity)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.StuId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.StuId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.StuId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
